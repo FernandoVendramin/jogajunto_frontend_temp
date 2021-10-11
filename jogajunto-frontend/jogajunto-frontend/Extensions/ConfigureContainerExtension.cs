@@ -1,4 +1,8 @@
-﻿using jogajunto_frontend.ViewModels;
+﻿using jogajunto_frontend.Repositories;
+using jogajunto_frontend.Repositories.Interfaces;
+using jogajunto_frontend.Services;
+using jogajunto_frontend.Services.Interfaces;
+using jogajunto_frontend.ViewModels;
 using jogajunto_frontend.Views;
 using Prism.Ioc;
 using Xamarin.Forms;
@@ -11,6 +15,16 @@ namespace jogajunto_frontend.Extensions
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomeView, HomeViewModel>();
+        }
+
+        public static void AddServices(this IContainerRegistry containerRegistry)
+        {
+            containerRegistry.Register<IHomeService, HomeService>();
+        }
+
+        public static void AddRepositories(this IContainerRegistry containerRegistry)
+        {
+            containerRegistry.Register<IHomeRepository, HomeRepository>();
         }
     }
 }

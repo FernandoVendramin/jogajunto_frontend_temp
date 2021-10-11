@@ -1,15 +1,252 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="clr-namespace:Xamarin.Forms.Svg;assembly=SvgImageSource"
              x:Class="jogajunto_frontend.Views.HomeView"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Image Source="home" VerticalOptions="StartAndExpand"/>
-            <Label Text="Welcome to Xamarin.Forms!"
-                   TextColor="Red"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <RelativeLayout>
+            <StackLayout
+                Spacing="0"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+	            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height, Factor=1}">
+                
+                <Image 
+                    Source="{Binding BannerImage}" 
+                    VerticalOptions="Start" 
+                    WidthRequest="190"
+                    HorizontalOptions="FillAndExpand"
+                    Aspect="AspectFill"/>
+                
+                <Grid 
+                    VerticalOptions="Start" 
+                    HorizontalOptions="StartAndExpand" 
+                    ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView Color="{x:StaticResource BarOrange}" Opacity="0.4" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0"/>
+                    <BoxView Color="{x:StaticResource BarPink}" Opacity="0.7" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1"/>
+                    <BoxView Color="{x:StaticResource BarGreen}" Opacity="0.7" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="2"/>
+                    <BoxView Color="{x:StaticResource BarPurple}" Opacity="0.7" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="3"/>
+                </Grid>
+
+                <ScrollView>
+                    <StackLayout Margin="0,50,0,0">
+                        <!--<ActivityIndicator Color="{x:StaticResource Primary}" IsRunning="True"/>-->
+                        
+                        <Label 
+                            Text="{Binding Title}" 
+                            HorizontalOptions="Center"
+                            Style="{StaticResource Title}"/>
+
+                        <Label 
+                            Text="{Binding Description}" 
+                            HorizontalOptions="Center"
+                            Margin="20, 15"/>
+
+                        <Button
+                            Text="Transparência"
+                            Margin="20,0"
+                            CornerRadius="10"
+                            BackgroundColor="{x:StaticResource PrimaryPink}"/>
+
+                        <Grid 
+                            VerticalOptions="Start" 
+                            HorizontalOptions="StartAndExpand" 
+                            Padding="17"
+                            ColumnSpacing="17"
+                            RowSpacing="17"
+                            Margin="0, 10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Frame 
+                                BackgroundColor="{x:StaticResource PinkButton}"
+                                Opacity="0.3"
+                                CornerRadius="10"
+                                HorizontalOptions="FillAndExpand"
+                                Grid.Row="0"
+                                Grid.Column="0">
+                                <!--<Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SalesByFamilyCommand}" CommandParameter="{x:Reference salesByFamilyFrame}"/>
+                                </Frame.GestureRecognizers>-->
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.5*" />
+                                        <RowDefinition Height="0.5*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        VerticalOptions="EndAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Margin="0"
+                                        HeightRequest="50"
+                                        WidthRequest="50">
+                                        <Image.Source>
+                                            <svg:SvgImageSource Source="heart.svg" Color="White"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Grid.Column="0"
+                                        Grid.Row="1"
+                                        VerticalOptions="StartAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Margin="0,5,0,0"
+                                        TextColor="White"
+                                        Text="Voluntariado" />
+                                </Grid>
+                            </Frame>
+
+                            <Frame
+                                BackgroundColor="{x:StaticResource GreenButton}"
+                                Opacity="0.3"
+                                CornerRadius="10"
+                                HorizontalOptions="FillAndExpand"
+                                Grid.Row="0"
+                                Grid.Column="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.5*" />
+                                        <RowDefinition Height="0.5*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        VerticalOptions="EndAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Margin="0"
+                                        HeightRequest="50"
+                                        WidthRequest="50">
+                                        <Image.Source>
+                                            <svg:SvgImageSource Source="programs.svg" Color="White"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Grid.Column="0"
+                                        Grid.Row="1"
+                                        VerticalOptions="StartAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Margin="0,5,0,0"
+                                        TextColor="White"
+                                        Text="Programas" />
+                                </Grid>
+                            </Frame>
+
+                            <Frame
+                                BackgroundColor="{x:StaticResource GreenButton}" 
+                                Opacity="0.3"
+                                CornerRadius="10"
+                                HorizontalOptions="FillAndExpand"
+                                Grid.Row="1"
+                                Grid.Column="0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.5*" />
+                                        <RowDefinition Height="0.5*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        VerticalOptions="EndAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Margin="0"
+                                        HeightRequest="50"
+                                        WidthRequest="50">
+                                        <Image.Source>
+                                            <svg:SvgImageSource Source="feed.svg" Color="White"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Grid.Column="0"
+                                        Grid.Row="1"
+                                        VerticalOptions="StartAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Margin="0,5,0,0"
+                                        TextColor="White"
+                                        Text="Feed" />
+                                </Grid>
+                            </Frame>
+
+                            <Frame
+                                BackgroundColor="{x:StaticResource PinkButton}"
+                                Opacity="0.3"
+                                CornerRadius="10"
+                                HorizontalOptions="FillAndExpand"
+                                Grid.Row="1"
+                                Grid.Column="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.5*" />
+                                        <RowDefinition Height="0.5*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        VerticalOptions="EndAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Margin="0"
+                                        HeightRequest="50"
+                                        WidthRequest="50">
+                                        <Image.Source>
+                                            <svg:SvgImageSource Source="services.svg" Color="White"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Grid.Column="0"
+                                        Grid.Row="1"
+                                        VerticalOptions="StartAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Margin="0,5,0,0"
+                                        TextColor="White"
+                                        Text="Serviços" />
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            
+            <Image Source="logo"
+                   WidthRequest="200"   
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0, Constant=0}"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height, Factor=0, Constant=80}">
+                <Image.Clip>
+                    <EllipseGeometry
+                        Center="100,50"
+                        RadiusX="50"
+                        RadiusY="50"/>
+                </Image.Clip>
+            </Image>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

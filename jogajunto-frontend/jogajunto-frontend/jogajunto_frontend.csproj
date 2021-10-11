@@ -11,9 +11,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Lato-Bold.ttf" />
+    <None Remove="Resources\Fonts\Lato-Regular.ttf" />
+    <None Remove="Resources\heart3.svg" />
+    <None Remove="Resources\Images\feed.svg" />
+    <None Remove="Resources\Images\heart.svg" />
+    <None Remove="Resources\Images\programs.svg" />
+    <None Remove="Resources\Images\services.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Lato-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Lato-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Images\feed.svg" />
+    <EmbeddedResource Include="Resources\Images\heart.svg" />
+    <EmbeddedResource Include="Resources\Images\programs.svg" />
+    <EmbeddedResource Include="Resources\Images\services.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>

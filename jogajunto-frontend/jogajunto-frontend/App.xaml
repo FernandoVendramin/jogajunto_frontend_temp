@@ -4,6 +4,38 @@
              xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
              x:Class="jogajunto_frontend.App">
     <Application.Resources>
+        <!--Colors-->
+        <Color x:Key="Primary">#117D8F</Color>
+        <Color x:Key="PrimaryPink">#FF819A</Color>
+        
+        <Color x:Key="BarOrange">#FBBB00</Color>
+        <Color x:Key="BarPink">#FF6584</Color>
+        <Color x:Key="BarGreen">#018CA1</Color>
+        <Color x:Key="BarPurple">#2D2B9C</Color>
+
+        <Color x:Key="PinkButton">#EF6B84</Color>
+        <Color x:Key="GreenButton">#4BACBB</Color>
+        
+        
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#333333"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Lato"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="Title">
+            <Setter Property="TextColor" Value="#3F3D56"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="LatoBold"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextTransform" Value="None"/>
+            <Setter Property="FontFamily" Value="LatoBold"/>
+        </Style>
 
     </Application.Resources>
 </prism:PrismApplication>

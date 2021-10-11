@@ -4,6 +4,7 @@ using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
 using Xamarin.Forms;
+using Xamarin.Forms.Svg;
 
 namespace jogajunto_frontend
 {
@@ -22,12 +23,15 @@ namespace jogajunto_frontend
         protected override async void OnInitialized()
         {
             InitializeComponent();
+            SvgImageSource.RegisterAssembly();
             await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(HomeView)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.AddNavigations();
+            containerRegistry.AddRepositories();
+            containerRegistry.AddServices();
         }
     }
 }
