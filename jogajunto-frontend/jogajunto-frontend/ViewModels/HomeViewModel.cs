@@ -1,6 +1,10 @@
 ﻿using jogajunto_frontend.Services.Interfaces;
 using jogajunto_frontend.ViewModels.Base;
+using jogajunto_frontend.Views;
+using Prism.Navigation;
 using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace jogajunto_frontend.ViewModels
@@ -13,12 +17,18 @@ namespace jogajunto_frontend.ViewModels
         private string _description;
         private ImageSource _bannerImage;
 
-        public HomeViewModel(IHomeService homeService)
+        public HomeViewModel(
+            INavigationService navigationService,
+            IHomeService homeService)
+            : base(navigationService)
         {
             _homeService = homeService;
+            FeedCommand = new Command<Frame>(async x => await FeedExecuteAsync(x));
 
             LoadData();
         }
+
+        public ICommand FeedCommand { get; set; }
 
         public string Title
         {
@@ -50,6 +60,13 @@ namespace jogajunto_frontend.ViewModels
             }
         }
 
+        private async Task ScaleEffect(Frame frame)
+        {
+            await frame.ScaleTo(0.95, 25, Easing.Linear);
+            await Task.Delay(50);
+            await frame.ScaleTo(1, 50, Easing.Linear);
+        }
+
         private async void LoadData()
         {
             var homeData = await _homeService.GetHomeAsync();
@@ -57,6 +74,12 @@ namespace jogajunto_frontend.ViewModels
             Description = homeData.Description;
             Title = homeData.Title;
             BannerImage = ImageSource.FromUri(new Uri(homeData.Media.Banner));
+        }
+
+        private async Task FeedExecuteAsync(Frame frame)
+        {
+            await ScaleEffect(frame);
+            await NavigationService.NavigateAsync(nameof(FeedView));
         }
     }
 }

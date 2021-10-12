@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="clr-namespace:Xamarin.Forms.Svg;assembly=SvgImageSource"
+             x:Class="jogajunto_frontend.Views.FeedView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <StackLayout
+                Spacing="0"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+	            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height, Factor=1}">
+
+                <Image 
+                    Source="home" 
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand"
+                    Aspect="AspectFill"/>
+
+                <StackLayout
+                    BackgroundColor="{StaticResource BarGreen}"
+                    HeightRequest="180"
+                    Opacity="0.5">
+
+                    <Label
+                        Text="Casa da Criança - Valinhos"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="EndAndExpand"
+                        Margin="0, 0, 0, 30"
+                        Style="{StaticResource Title}"
+                        TextColor="White"/>
+                </StackLayout>
+
+                <ListView
+                    ItemsSource="{Binding Feeds}"
+                    SelectionMode="None"
+                    Margin="0,10,0,0"
+                    HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                    Margin="10"
+                                    BackgroundColor="LightGray">
+                                    <Label Text="{Binding Title}" FontSize="10"/>
+                                    <Label Text="{Binding Comment}" FontSize="10"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </StackLayout>
+
+            <StackLayout
+                BackgroundColor="Transparent"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                HeightRequest="30"
+                WidthRequest="30"
+                Margin="15"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0, Constant=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height, Factor=0, Constant=0}">
+                <Image
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand">
+                    <Image.Source>
+                        <svg:SvgImageSource Source="arrow.svg" Color="White"/>
+                    </Image.Source>
+                </Image>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+
+            <Image Source="logo"
+                   WidthRequest="200"   
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0, Constant=0}"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height, Factor=0, Constant=80}">
+                <Image.Clip>
+                    <EllipseGeometry
+                        Center="100,50"
+                        RadiusX="50"
+                        RadiusY="50"/>
+                </Image.Clip>
+            </Image>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

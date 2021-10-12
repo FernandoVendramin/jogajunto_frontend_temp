@@ -15,16 +15,19 @@ namespace jogajunto_frontend.Extensions
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomeView, HomeViewModel>();
+            containerRegistry.RegisterForNavigation<FeedView, FeedViewModel>();
         }
 
         public static void AddServices(this IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<IHomeService, HomeService>();
+            containerRegistry.Register<IFeedService, FeedService>();
         }
 
         public static void AddRepositories(this IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<IHomeRepository, HomeRepository>();
+            containerRegistry.Register<IFeedRepository, FeedRepository>();
         }
     }
 }

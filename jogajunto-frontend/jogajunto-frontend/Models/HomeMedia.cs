@@ -4,6 +4,11 @@ namespace jogajunto_frontend.Models
 {
     public class HomeMedia
     {
+        public HomeMedia()
+        {
+
+        }
+
         [JsonProperty("profile")]
         public string Profile { get; set; }
 

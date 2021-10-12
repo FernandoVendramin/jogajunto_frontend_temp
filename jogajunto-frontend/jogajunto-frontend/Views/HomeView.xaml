@@ -153,12 +153,16 @@
                             </Frame>
 
                             <Frame
+                                x:Name="feedFrame"
                                 BackgroundColor="{x:StaticResource GreenButton}" 
                                 Opacity="0.3"
                                 CornerRadius="10"
                                 HorizontalOptions="FillAndExpand"
                                 Grid.Row="1"
                                 Grid.Column="0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding FeedCommand}" CommandParameter="{x:Reference feedFrame}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="0.5*" />
