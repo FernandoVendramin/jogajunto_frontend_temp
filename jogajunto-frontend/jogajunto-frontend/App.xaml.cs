@@ -23,6 +23,8 @@ namespace jogajunto_frontend
         protected override async void OnInitialized()
         {
             InitializeComponent();
+            Xamarin.Forms.Device.SetFlags(new[] { "CarouselView_Experimental", "IndicatorView_Experimental" });
+
             SvgImageSource.RegisterAssembly();
             await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(HomeView)}");
         }

@@ -3,6 +3,7 @@ using jogajunto_frontend.Services.Interfaces;
 using jogajunto_frontend.ViewModels.Base;
 using Prism.Navigation;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;

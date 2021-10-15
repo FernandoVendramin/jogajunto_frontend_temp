@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:svg="clr-namespace:Xamarin.Forms.Svg;assembly=SvgImageSource"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              x:Class="jogajunto_frontend.Views.FeedView"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
@@ -33,17 +34,82 @@
 
                 <ListView
                     ItemsSource="{Binding Feeds}"
+                    BackgroundColor="#E5E5E5"
                     SelectionMode="None"
                     Margin="0,10,0,0"
+                    SeparatorVisibility="None"
                     HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout
-                                    Margin="10"
-                                    BackgroundColor="LightGray">
-                                    <Label Text="{Binding Title}" FontSize="10"/>
-                                    <Label Text="{Binding Comment}" FontSize="10"/>
+                                    BackgroundColor="White"
+                                    Margin="0, 1"
+                                    Padding="20">
+                                    <Label 
+                                        Text="{Binding Date}"
+                                        FontSize="10" 
+                                        FontFamily="LatoLight" 
+                                        TextColor="#161F3D"/>
+                                    
+                                    <Label 
+                                        Text="{Binding Comment}" 
+                                        FontSize="12"
+                                        TextColor="#333333"/>
+
+                                    <CarouselView
+                                        Margin="0,10,0,0"
+                                        ItemsSource="{Binding Media.Content}"
+                                        IndicatorView="{x:Reference indicatorView}"
+                                        HeightRequest="220">
+                                        <CarouselView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout
+                                                    HeightRequest="200"
+                                                    Padding="5,0">
+                                                    <Frame 
+                                                        CornerRadius="5"
+                                                        BackgroundColor="White"
+                                                        HeightRequest="200"
+                                                        Padding="0"
+                                                        Margin="0">
+                                                        <Image 
+                                                            Source="{Binding .}"
+                                                            Aspect="Fill"/>
+
+                                                        <!--<xct:MediaElement
+                                                            x:Name="mediaElement"
+                                                            Source="https://www.youtube.com/watch?v=oeLKstKDMu4"
+                                                            ShowsPlaybackControls="True"
+                                                            HorizontalOptions="Fill" />-->
+
+
+                                                    </Frame>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </CarouselView.ItemTemplate>
+                                    </CarouselView>
+                                    <IndicatorView x:Name="indicatorView"
+                                       IndicatorColor="LightGray"
+                                       SelectedIndicatorColor="DarkGray"
+                                       HorizontalOptions="Center" />
+
+                                    <Button
+                                        Text="Compartilhar"
+                                        Padding="20, 0"
+                                        HeightRequest="25"
+                                        FontSize="12"
+                                        BorderColor="#EF6B84"
+                                        TextColor="#EF6B84"
+                                        BackgroundColor="White"
+                                        ContentLayout="Right,20"
+                                        BorderWidth="1"
+                                        CornerRadius="15"
+                                        HorizontalOptions="Start">
+                                        <Button.ImageSource>
+                                            <svg:SvgImageSource Source="external.svg" Color="#EF6B84"/>
+                                        </Button.ImageSource>
+                                    </Button>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
