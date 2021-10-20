@@ -18,5 +18,7 @@ namespace jogajunto_frontend.Models
 
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        public bool IsPhoto => Type?.ToLower() == "foto";
     }
 }

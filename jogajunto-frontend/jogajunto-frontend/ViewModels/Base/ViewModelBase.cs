@@ -11,5 +11,16 @@ namespace jogajunto_frontend.ViewModels.Base
         {
             NavigationService = navigationService;
         }
+
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get => _isBusy;
+            set
+            {
+                _isBusy = value;
+                RaisePropertyChanged();
+            }
+        }
     }
 }

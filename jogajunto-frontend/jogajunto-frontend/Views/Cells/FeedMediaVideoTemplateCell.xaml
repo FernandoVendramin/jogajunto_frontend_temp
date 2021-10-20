@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:svg="clr-namespace:Xamarin.Forms.Svg;assembly=SvgImageSource"
+          x:Class="jogajunto_frontend.Views.Cells.FeedMediaVideoTemplateCell">
+  <ViewCell.View>
+        <StackLayout
+            BackgroundColor="White"
+            Margin="0, 1"
+            Padding="20">
+            <Label 
+                Text="{Binding Date}"
+                FontSize="10" 
+                FontFamily="LatoLight" 
+                TextColor="#161F3D"/>
+
+            <Label 
+                Text="{Binding Comment}" 
+                FontSize="12"
+                TextColor="#333333"/>
+
+            <WebView 
+                HeightRequest="200"
+                BackgroundColor="Transparent"
+                HorizontalOptions="FillAndExpand">
+                <WebView.Source>
+                    <HtmlWebViewSource
+                        Html="{Binding HtmlVideo}"/>
+                </WebView.Source>
+            </WebView>
+
+            <Button
+                Text="Compartilhar"
+                Padding="20, 0"
+                HeightRequest="25"
+                FontSize="12"
+                BorderColor="#EF6B84"
+                TextColor="#EF6B84"
+                BackgroundColor="White"
+                ContentLayout="Right,20"
+                BorderWidth="1"
+                CornerRadius="15"
+                HorizontalOptions="Start">
+                <Button.ImageSource>
+                    <svg:SvgImageSource Source="external.svg" Color="#EF6B84"/>
+                </Button.ImageSource>
+            </Button>
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>
