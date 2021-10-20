@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:svg="clr-namespace:Xamarin.Forms.Svg;assembly=SvgImageSource"
-             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              xmlns:template="clr-namespace:jogajunto_frontend.Templates"
              xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
              x:Class="jogajunto_frontend.Views.FeedView"
@@ -43,7 +42,6 @@
                 <ListView
                     ItemsSource="{Binding Items}"
                     BackgroundColor="#E5E5E5"
-                    
                     SelectionMode="None"
                     Margin="0"
                     SeparatorVisibility="None"
@@ -92,7 +90,6 @@
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding BackCommand}"/>
                 </StackLayout.GestureRecognizers>
-
             </StackLayout>
 
             <Image Source="logo"
